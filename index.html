@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Untuk NurSakila Safitri ❤️</title>
+  <meta name="description" content="Sebuah halaman cinta ulang tahun untuk NurSakila Safitri, dihiasi kata-kata romantis, musik, foto kenangan, dan penuh dengan simbol cinta." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+  <style>
+    :root {
+      --bg:#0a0610; 
+      --pink:#ff87b7; 
+      --rose:#ff4d88; 
+      --soft:#ffd6e7; 
+      --card:#1c0f20; 
+      --text:#f7f4f8;
+      --muted:#c9b9c9;
+      --gold:#ffd700;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background: radial-gradient(1200px 800px at 80% -10%, rgba(255,77,136,.15), transparent 60%),
+                              radial-gradient(1000px 700px at -20% 120%, rgba(255,135,183,.12), transparent 60%),
+                              linear-gradient(160deg, #1a0b1f, #0a0610);
+      color:var(--text); font-family:Poppins, system-ui, sans-serif; overflow-x:hidden;
+    }
+    header{position:relative; padding:100px 24px 60px; text-align:center}
+    .title{
+      font-family:"Playfair Display", serif; font-size: clamp(38px, 7vw, 70px); margin:0; letter-spacing:.8px;
+      background: linear-gradient(180deg, #fff, var(--soft), var(--gold));
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+      text-shadow: 0 8px 40px rgba(255, 77, 136, .4);
+      position: relative;
+    }
+    .title::after{
+      content:"❤"; position:absolute; right:-40px; top:-10px; font-size:40px; color:var(--rose); animation: pulse 1.5s infinite;
+    }
+    .subtitle{margin:18px auto 0; max-width:860px; color:var(--muted); font-weight:400; font-size:clamp(15px, 2.2vw, 19px); line-height:1.8}
+
+    .card{
+      width:min(960px, 95%);
+      margin:40px auto 0; padding:32px; border-radius:32px; background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.12); box-shadow: 0 15px 50px rgba(0,0,0,.55);
+      position: relative;
+    }
+    .card::before{
+      content:"💖"; position:absolute; font-size:50px; color:var(--rose); top:-25px; left:-20px; opacity:.7;
+    }
+    .card::after{
+      content:"💞"; position:absolute; font-size:50px; color:var(--pink); bottom:-25px; right:-20px; opacity:.7;
+    }
+
+    .love-tag{
+      display:inline-flex; align-items:center; gap:10px; padding:12px 18px; border-radius:999px; 
+      background:rgba(255,77,136,.18); color:#ffd6e7; border:1px solid rgba(255,77,136,.45); font-weight:600; letter-spacing:.5px;
+      font-size:15px; box-shadow:0 0 18px rgba(255,77,136,.35);
+    }
+    .love-tag .dot{width:10px;height:10px;border-radius:50%;background:var(--rose);box-shadow:0 0 18px var(--rose)}
+
+    .grid{display:grid; grid-template-columns:1.2fr .8fr; gap:28px}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
+
+    .letter{background:var(--card); border:1px solid rgba(255,255,255,.08); border-radius:28px; padding:28px; box-shadow:inset 0 0 40px rgba(255,77,136,.15)}
+    .letter h2{margin:0 0 14px; font-family:"Playfair Display", serif; font-size:clamp(24px, 3.5vw, 36px); color:var(--gold)}
+    .letter p{margin:12px 0; color:#f0e6f2; line-height:1.9; font-size:17px}
+
+    .photo{position:relative; background: linear-gradient(140deg, rgba(255,77,136,.25), rgba(255,135,183,.18)); 
+      border:2px solid rgba(255,255,255,.2); border-radius:28px; overflow:hidden; min-height:340px;
+      display:flex; align-items:center; justify-content:center; text-align:center; padding:20px;
+      box-shadow: 0 10px 30px rgba(255,77,136,.2);
+    }
+    .photo img{max-width:100%; border-radius:20px; box-shadow:0 8px 24px rgba(255,0,100,.4)}
+    .photo small{color:var(--muted)}
+
+    .actions{display:flex; flex-wrap:wrap; gap:14px; margin-top:18px}
+    button.play{
+      appearance:none; border:none; cursor:pointer; padding:16px 22px; border-radius:18px; font-weight:700; letter-spacing:.3px;
+      background: linear-gradient(180deg, var(--rose), var(--pink)); color:#170b14; box-shadow: 0 12px 28px rgba(255,77,136,.45);
+      transition: transform .15s ease, filter .15s ease;
+    }
+    button.play:hover{transform: translateY(-2px) scale(1.03); filter:brightness(1.07)}
+    .ghost{padding:14px 20px; border-radius:16px; background:rgba(255,255,255,.06); color:var(--soft); border:1px solid rgba(255,255,255,.12); font-weight:600}
+
+    .quote{margin:18px 0 0; color:#f9ccdc; font-style:italic; font-size:16px}
+
+    /* Floating hearts */
+    .hearts{position:fixed; inset:0; pointer-events:none; z-index:-1}
+    .heart{position:absolute; width:16px; height:16px; transform: rotate(45deg); opacity:.85; animation: floatUp linear forwards}
+    .heart:before,.heart:after{content:""; position:absolute; width:16px; height:16px; background:inherit; border-radius:50%}
+    .heart:before{left:-8px}
+    .heart:after{top:-8px}
+    @keyframes floatUp{to{transform: translateY(-120vh) rotate(45deg); opacity:0}}
+
+    /* Extra glowing hearts background */
+    .bg-heart{
+      position:absolute; border-radius:50%; background:radial-gradient(circle, rgba(255,77,136,.5), transparent 70%);
+      animation: pulse 4s infinite ease-in-out; opacity:.4
+    }
+    @keyframes pulse{50%{transform:scale(1.3); opacity:.6}}
+
+    /* Footer */
+    footer{padding:50px 24px 50px; text-align:center; color:var(--muted); font-size:15px}
+
+    /* QR */
+    .qr-container{margin-top:34px; text-align:center}
+    .qr-container canvas{margin-top:12px; border-radius:14px; background:#fff; padding:8px; box-shadow:0 8px 20px rgba(0,0,0,.25)}
+
+    /* Typewriter */
+    .type{font-weight:700; color:#ff9cc6}
+  </style>
+</head>
+<body>
+  <div class="hearts" id="hearts"></div>
+
+  <header>
+    <div class="love-tag"><span class="dot"></span> Untuk: <span style="font-weight:800">NurSakila Safitri</span></div>
+    <h1 class="title">Selamat Ulang Tahun, Wanita yang Kusayangi 💕</h1>
+    <p class="subtitle">Terimakasihku untukmu amat sangat besar, dan beribu maaf kusampaikan padamu atas banyaknya kekuranganku. Tidak banyak yang bisa aku sampaikan, namun doaku amat besar untukmu: semoga, semoga, dan semoga umur dan rezekimu selalu berjalan baik. Semoga kamu mendapatkan kebahagiaan, entah bersamaku maupun takdirmu nantinya. — Salam kasih cintamu L, dan simpanan mamamu Dika. 💝</p>
+  </header>
+
+  <main class="card">
+    <div class="grid">
+      <section class="letter">
+        <h2>Pesan dari Hati ❤️</h2>
+        <p>Sayang, di hari spesial ini aku ingin kau tahu bahwa rasa syukurku untukmu tak terhingga. Aku sadar akan banyak kekuranganku, tapi aku selalu berharap bisa menjadi lebih baik untukmu. 💞</p>
+        <p>Doa ini adalah milikmu: semoga umurmu panjang, penuh berkah, rezekimu lancar, dan kebahagiaan selalu bersamamu, dengan atau tanpa aku di sisimu. 💖</p>
+        <p>Terimalah cinta ini, yang akan selalu mengalir dalam setiap langkahku menyebut namamu: <span class="type" id="type"></span></p>
+        <div class="actions">
+          <button class="play" id="playBtn">▶ Putar Lagu “Die With a Smile” 💕</button>
+          <a class="ghost" href="#video">Lihat pemutar</a>
+        </div>
+        <audio id="bgm" loop>
+          <source src="https://docs.google.com/uc?export=download&id=1h0v8NtuP8P0V1F6l-Bv0fWbULbC4sFhz" type="audio/mp3">
+        </audio>
+        <p class="quote">“Selamat ulang tahun, sayang. Doaku selalu untukmu. ❤”</p>
+      </section>
+
+      <aside class="photo">
+        <div>
+          <img src="4431ea47-d830-4013-8d5d-c1f628f9d6d7.jfif" alt="Foto Kenangan" />
+          <h3 style="margin:10px 0; color:var(--gold)">Galeri Kenangan 💞</h3>
+          <p style="margin:0 0 12px">Sebuah momen yang tak ternilai untuk disimpan selamanya dalam hati. 💕</p>
+        </div>
+      </aside>
+    </div>
+
+    <section id="video" style="margin-top:28px">
+      <div class="letter">
+        <h2>Irama yang Menemani 💖</h2>
+        <p>Dengan satu klik, biarkan lagu dari <strong>Lady Gaga</strong> & <strong>Bruno Mars</strong> mengalun sebagai hadiah ulang tahun untukmu. (Ini adalah embed video resmi dari YouTube.)</p>
+        <div style="position:relative; padding-top:56.25%; border-radius:20px; overflow:hidden; border:2px solid rgba(255,255,255,.1); background:#0b0b0c; box-shadow:0 10px 28px rgba(0,0,0,.6)">
+          <iframe id="yt" title="Die With a Smile - Lady Gaga & Bruno Mars" style="position:absolute; inset:0; width:100%; height:100%; display:none" 
+            src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <div id="cover" style="position:absolute; inset:0; display:grid; place-items:center; backdrop-filter:blur(4px)">
+            <button class="play" aria-label="Putar video">▶ Putar Sekarang 💝</button>
+          </div>
+        </div>
+        <p style="margin-top:12px; color:var(--muted)">Catatan: Beberapa peramban memblokir <em>autoplay</em>. Tekan tombol untuk mulai memutar.</p>
+      </div>
+    </section>
+
+    <div class="qr-container">
+      <h3 style="color:var(--gold)">Bagikan Halaman Ini 💌</h3>
+      <canvas id="qr"></canvas>
+      <p style="color:var(--muted); font-size:14px">Scan QR code ini untuk mengakses halaman cinta ini ✨❤️</p>
+    </div>
+
+  </main>
+
+  <footer>
+    Dibuat dengan cinta oleh L & Dika. <br/>Semoga setiap kali kamu membuka halaman ini, kamu merasa dipeluk oleh doa-doa kami. 💞❤️💖💘
+  </footer>
+
+  <script>
+    // Typewriter untuk nama panggilan
+    const target = document.getElementById('type');
+    const name = 'NurSakila Safitri';
+    let i = 0; 
+    const loop = () => {
+      if (i <= name.length) {
+        target.textContent = name.slice(0, i);
+        i++; 
+        setTimeout(loop, 120);
+      } else {
+        setTimeout(()=>{ i = 0; loop(); }, 2200);
+      }
+    }
+    loop();
+
+    // Floating hearts generator
+    const hearts = document.getElementById('hearts');
+    function spawnHeart(){
+      const h = document.createElement('div');
+      h.className = 'heart';
+      const size = 12 + Math.random()*22;
+      h.style.width = h.style.height = size + 'px';
+      const hue = 340 + Math.random()*20;
+      h.style.background = `hsl(${hue} 90% 60%)`;
+      h.style.left = Math.random()*100 + 'vw';
+      h.style.bottom = '-5vh';
+      const dur = 7 + Math.random()*7; 
+      h.style.animationDuration = dur + 's';
+      hearts.appendChild(h);
+      setTimeout(()=>h.remove(), dur*1000);
+    }
+    setInterval(spawnHeart, 320);
+
+    // Extra glowing static hearts in background
+    for(let j=0;j<15;j++){
+      const b = document.createElement('div');
+      b.className = 'bg-heart';
+      const size = 80 + Math.random()*150;
+      b.style.width = b.style.height = size+'px';
+      b.style.left = Math.random()*100+'%';
+      b.style.top = Math.random()*100+'%';
+      document.body.appendChild(b);
+    }
+
+    // YouTube embed: muncul saat tombol ditekan
+    const yt = document.getElementById('yt');
+    const cover = document.getElementById('cover');
+    const playBtn = document.getElementById('playBtn');
+    const bgm = document.getElementById('bgm');
+
+    function revealPlayer(){
+      if (!yt.src) {
+        yt.src = 'https://www.youtube.com/embed?autoplay=1&mute=0&rel=0&listType=search&list=' + encodeURIComponent('Die With a Smile Lady Gaga Bruno Mars official');
+      }
+      yt.style.display = 'block';
+      cover.style.display = 'none';
+      bgm.play();
+      window.location.hash = '#video';
+    }
+
+    cover.addEventListener('click', revealPlayer);
+    playBtn.addEventListener('click', revealPlayer);
+
+    // Generate QR Code untuk URL halaman ini
+    const qr = new QRious({
+      element: document.getElementById('qr'),
+      value: window.location.href,
+      size: 180,
+      background: 'white',
+      foreground: '#ff4d88'
+    });
+  </script>
+</body>
+</html>
